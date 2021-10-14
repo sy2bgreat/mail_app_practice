@@ -21,6 +21,43 @@ class MyHomePage extends StatelessWidget {
                 icon: const Icon(Icons.email_outlined)),
           ],
         ),
+        drawer: Drawer(
+          child: ListView(
+            padding: const EdgeInsets.all(0),
+            children: [
+              const UserAccountsDrawerHeader(
+                accountName: Text("Cat"),
+                accountEmail: Text("meow@meow.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: AssetImage('images/k3.jpeg'),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.lightGreen,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(35),
+                      bottomRight: Radius.circular(35)),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.mail_outline_outlined,
+                    color: Colors.black),
+                title: const Text("Sent"),
+                onTap: () {
+                  Navigator.pushNamed(context, '/send');
+                },
+                trailing: const Icon(Icons.add),
+              ),
+              ListTile(
+                leading: const Icon(Icons.email_sharp, color: Colors.black),
+                title: const Text("Received"),
+                onTap: () {
+                  Navigator.pushNamed(context, '/re');
+                },
+                trailing: const Icon(Icons.add),
+              )
+            ],
+          ),
+        ),
         body: Center(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
